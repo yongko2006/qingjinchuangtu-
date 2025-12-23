@@ -1,1 +1,882 @@
-<h1>你好，哈哈哈哈哈。</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青矜创途 | 家具美学展示平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2a6e3f;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #d4af37;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #2a6e3f;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #666;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 35px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #2a6e3f;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #2a6e3f;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(rgba(42, 110, 63, 0.85), rgba(42, 110, 63, 0.75)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            margin-top: 20px;
+        }
+        
+        .cta-btn:hover {
+            background-color: white;
+            color: #2a6e3f;
+        }
+        
+        /* 展示区域标题 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2a6e3f;
+            font-weight: 300;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: #d4af37;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 20px auto 50px;
+            line-height: 1.8;
+        }
+        
+        /* 分类筛选 */
+        .categories {
+            padding: 20px 0 40px;
+            text-align: center;
+        }
+        
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #2a6e3f;
+            color: white;
+        }
+        
+        /* 家具展示网格 */
+        .furniture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+        
+        .furniture-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+        }
+        
+        .furniture-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .furniture-img-container {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .furniture-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.7s;
+        }
+        
+        .furniture-item:hover .furniture-img {
+            transform: scale(1.08);
+        }
+        
+        .view-product {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #2a6e3f;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.4s;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .furniture-item:hover .view-product {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .furniture-info {
+            padding: 25px;
+        }
+        
+        .furniture-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .furniture-info p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .price-tag {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2a6e3f;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .purchase-link {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #555;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+        }
+        
+        .purchase-link:hover {
+            background-color: #2a6e3f;
+            color: white;
+            border-color: #2a6e3f;
+        }
+        
+        .purchase-link i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        /* 特色区域 */
+        .features {
+            background-color: #f1f7f3;
+            padding: 80px 0;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: #2a6e3f;
+            margin-bottom: 20px;
+        }
+        
+        .feature-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #ddd;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #d4af37;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #aaa;
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #d4af37;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #2a6e3f;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo-container {
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .furniture-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: 400px;
+                margin-bottom: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+            
+            .features {
+                padding: 60px 0;
+            }
+            
+            .features-grid {
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .furniture-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-filter {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    青矜<span>创途</span>
+                </a>
+                <span class="tagline">家具美学展示平台</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#living-room">客厅家具</a></li>
+                    <li><a href="#bedroom">卧室家具</a></li>
+                    <li><a href="#dining-room">餐厅家具</a></li>
+                    <li><a href="#study">书房家具</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>青矜创途 · 家具美学</h1>
+            <p>探索设计与生活的完美融合，发现独具匠心的家具艺术品。<br>每一件作品都承载着设计师的巧思与匠人的温度。</p>
+            <a href="#furniture" class="cta-btn">探索家具艺术</a>
+        </div>
+    </section>
+
+    <!-- 家具展示区域 -->
+    <div class="container">
+        <div class="section-title">
+            <h2>精选家具展示</h2>
+        </div>
+        
+        <div class="section-subtitle">
+            <p>我们精选了来自全球设计师的优秀作品，点击任意图片查看详情并跳转到购买平台</p>
+        </div>
+        
+        <!-- 分类筛选 -->
+        <div class="categories">
+            <div class="category-filter">
+                <button class="filter-btn active" data-filter="all">全部作品</button>
+                <button class="filter-btn" data-filter="living-room">客厅系列</button>
+                <button class="filter-btn" data-filter="bedroom">卧室系列</button>
+                <button class="filter-btn" data-filter="dining-room">餐厅系列</button>
+                <button class="filter-btn" data-filter="study">书房系列</button>
+            </div>
+
+            <!-- 家具展示网格 -->
+            <div class="furniture-grid" id="furniture">
+                <!-- 家具项目1 -->
+                <div class="furniture-item" data-category="living-room">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="现代简约沙发" class="furniture-img">
+                        <a href="https://example.com/product1" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>云影系列沙发</h3>
+                        <p>设计师王明远作品，采用北欧极简设计理念，高级灰棉麻面料，实木框架结构，完美融合舒适与美学。</p>
+                        <span class="price-tag">参考价 ¥ 6,800</span>
+                        <a href="https://example.com/product1" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目2 -->
+                <div class="furniture-item" data-category="bedroom">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="实木双人床" class="furniture-img">
+                        <a href="https://example.com/product2" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>栖木系列双人床</h3>
+                        <p>北美黑胡桃木打造，无油漆环保涂装，简约线条设计，床头储物功能，营造静谧睡眠空间。</p>
+                        <span class="price-tag">参考价 ¥ 9,200</span>
+                        <a href="https://example.com/product2" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目3 -->
+                <div class="furniture-item" data-category="dining-room">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="北欧风餐桌椅" class="furniture-img">
+                        <a href="https://example.com/product3" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>素月系列餐桌椅</h3>
+                        <p>六人位餐桌椅组合，橡木实木材质，圆润边角设计，符合人体工学座椅曲线，营造温馨用餐氛围。</p>
+                        <span class="price-tag">参考价 ¥ 7,500</span>
+                        <a href="https://example.com/product3" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目4 -->
+                <div class="furniture-item" data-category="study">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1586035758264-c5b683a4f6cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="现代办公桌" class="furniture-img">
+                        <a href="https://example.com/product4" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>砚台系列书桌</h3>
+                        <p>黑胡桃木与金属组合，隐藏式线缆管理，可调节高度设计，多功能收纳空间，提升工作效率。</p>
+                        <span class="price-tag">参考价 ¥ 4,800</span>
+                        <a href="https://example.com/product4" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目5 -->
+                <div class="furniture-item" data-category="living-room">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="皮质休闲椅" class="furniture-img">
+                        <a href="https://example.com/product5" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>悦读系列休闲椅</h3>
+                        <p>意大利头层牛皮，实木框架，可旋转可摇动设计，符合人体工学曲线，为阅读时光增添舒适体验。</p>
+                        <span class="price-tag">参考价 ¥ 3,200</span>
+                        <a href="https://example.com/product5" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目6 -->
+                <div class="furniture-item" data-category="dining-room">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="现代电视柜" class="furniture-img">
+                        <a href="https://example.com/product6" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>流光系列电视柜</h3>
+                        <p>白橡木与黑钢组合，悬浮式设计，智能灯光系统，多功能储物空间，简约现代客厅焦点。</p>
+                        <span class="price-tag">参考价 ¥ 5,600</span>
+                        <a href="https://example.com/product6" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目7 -->
+                <div class="furniture-item" data-category="bedroom">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="滑动门衣柜" class="furniture-img">
+                        <a href="https://example.com/product7" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>隐序系列衣柜</h3>
+                        <p>环保板材与玻璃门组合，静音滑轮系统，模块化内部结构，超大容量储物空间，保持卧室整洁有序。</p>
+                        <span class="price-tag">参考价 ¥ 8,900</span>
+                        <a href="https://example.com/product7" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 家具项目8 -->
+                <div class="furniture-item" data-category="study">
+                    <div class="furniture-img-container">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="书房书架" class="furniture-img">
+                        <a href="https://example.com/product8" target="_blank" class="view-product">查看商品详情</a>
+                    </div>
+                    <div class="furniture-info">
+                        <h3>博雅系列书架</h3>
+                        <p>模块化组合设计，实木与金属结构，可调节层板高度，多种尺寸可选，打造个性化书房空间。</p>
+                        <span class="price-tag">参考价 ¥ 6,300</span>
+                        <a href="https://example.com/product8" target="_blank" class="purchase-link">前往购买 <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 特色区域 -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>平台特色</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>美学展示</h3>
+                    <p>专注于家具设计美学展示，每件作品都经过精心挑选，呈现设计与工艺的完美结合。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>直通购买</h3>
+                    <p>点击图片直接跳转至合作平台购买页面，简化流程，让您轻松拥有心仪家具。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>设计师作品</h3>
+                    <p>汇聚国内外知名设计师作品，每件家具都有独特的设计理念和故事。</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>环保理念</h3>
+                    <p>倡导环保设计，优选可持续材料，推广绿色家居生活方式。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>青矜创途</h3>
+                    <p>一个专注于家具美学展示的平台，连接设计师与生活爱好者，探索家居艺术的可能性。</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>家具系列</h3>
+                    <a href="#living-room">客厅系列</a>
+                    <a href="#bedroom">卧室系列</a>
+                    <a href="#dining-room">餐厅系列</a>
+                    <a href="#study">书房系列</a>
+                    <a href="#">户外系列</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>设计师</h3>
+                    <a href="#">王明远工作室</a>
+                    <a href="#">北欧设计联盟</a>
+                    <a href="#">日式极简主义</a>
+                    <a href="#">本土设计师</a>
+                    <a href="#">国际设计师</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 北京市朝阳区艺术设计园区A座</p>
+                    <p><i class="fas fa-envelope"></i> contact@qingjin.com</p>
+                    <p><i class="fas fa-phone"></i> 010-88889999</p>
+                    <p><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 青矜创途家具美学展示平台. 保留所有权利. | 本网站为展示平台，实际购买请跳转至合作商家</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 分类筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const furnitureItems = document.querySelectorAll('.furniture-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // 为当前点击的按钮添加active类
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    furnitureItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            // 添加淡入动画
+                            item.style.animation = 'fadeIn 0.5s forwards';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 添加淡入动画CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // 图片悬停效果增强
+            const furnitureItemsContainers = document.querySelectorAll('.furniture-item');
+            furnitureItemsContainers.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('.furniture-img');
+                    img.style.transform = 'scale(1.08)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    const img = this.querySelector('.furniture-img');
+                    img.style.transform = 'scale(1)';
+                });
+            });
+            
+            // 控制台信息
+            console.log('青矜创途家具展示平台已加载');
+            console.log('点击家具图片将跳转到相应的购物链接');
+        });
+    </script>
+</body>
+</html>
