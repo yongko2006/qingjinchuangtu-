@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>青矜创途 | 收藏级木作家具殿堂</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FEFCF8;
+            color: #2A2E28;
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 64px;
+        }
+
+        /* 响应式容器内边距 */
+        @media (max-width: 1200px) {
+            .container { padding: 0 48px; }
+        }
+        @media (max-width: 992px) {
+            .container { padding: 0 32px; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+        }
+        @media (max-width: 576px) {
+            .container { padding: 0 20px; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #EDE8DF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C8B28B;
+            border-radius: 10px;
+        }
+
+        /* 头部 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(254, 252, 248, 0.96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(180, 140, 72, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            text-decoration: none;
+            flex-wrap: wrap;
+        }
+
+        .logo-icon {
+            font-size: 26px;
+            color: #B48C48;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2C3A2B;
+        }
+
+        .logo-text span {
+            color: #B48C48;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 11px;
+            font-weight: 400;
+            color: #9B927E;
+            margin-left: 12px;
+            border-left: 1px solid #E2D9CC;
+            padding-left: 12px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            color: #4A4F45;
+            transition: color 0.25s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #B48C48;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: #B48C48;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* 英雄区 - 优化间距 */
+        .hero {
+            background: linear-gradient(110deg, #FEF9F0 0%, #FAF4E8 100%);
+            margin-bottom: 0;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 70px 0 80px;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1.1;
+            padding-right: 40px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(180, 140, 72, 0.12);
+            color: #B48C48;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 18px;
+            border-radius: 40px;
+            margin-bottom: 28px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.15;
+            color: #2C3A2B;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+            color: #B48C48;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            color: #5E6558;
+            max-width: 520px;
+            margin-bottom: 40px;
+            line-height: 1.65;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #2C3A2B;
+            color: white;
+            padding: 13px 40px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.35s;
+        }
+
+        .cta-btn:hover {
+            background: #B48C48;
+            transform: translateY(-3px);
+        }
+
+        .hero-media {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideInRight 0.8s ease 0.2s forwards;
+        }
+
+        @keyframes slideInRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 540px;
+            border-radius: 36px;
+            box-shadow: 0 35px 55px -20px rgba(0, 0, 0, 0.18);
+        }
+
+        /* 滚动动画 */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2C3A2B;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header .sub {
+            color: #8C8776;
+            max-width: 620px;
+            margin: 14px auto 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* 分类筛选 */
+        .categories {
+            margin: 20px 0 40px;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 52px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #6B6F63;
+        }
+
+        .filter-btn.active {
+            background: #2C3A2B;
+            color: #FEFCF8;
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: #EAE3D8;
+            color: #B48C48;
+        }
+
+        /* 家具网格 */
+        .furniture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .furniture-item {
+            background: #FFFFFF;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #F0E8DE;
+        }
+
+        .furniture-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 40px -16px rgba(0, 0, 0, 0.12);
+        }
+
+        .furniture-img-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background: #F4EFE6;
+        }
+
+        .furniture-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .furniture-item:hover .furniture-img {
+            transform: scale(1.05);
+        }
+
+        .view-product {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.92);
+            background: rgba(44, 58, 43, 0.92);
+            backdrop-filter: blur(10px);
+            color: #FEF3E2;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 13px;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.35s;
+            white-space: nowrap;
+        }
+
+        .furniture-item:hover .view-product {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .furniture-info {
+            padding: 26px 26px 30px;
+        }
+
+        .furniture-info h3 {
+            font-size: 24px;
+            font-weight: 550;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 10px;
+            color: #2C3A2B;
+        }
+
+        .furniture-info p {
+            color: #727A6A;
+            font-size: 14px;
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        .price-tag {
+            font-size: 24px;
+            font-weight: 600;
+            color: #B48C48;
+            display: block;
+            margin: 14px 0 18px;
+        }
+
+        .purchase-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #E2D8CC;
+            padding: 9px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 13px;
+            text-decoration: none;
+            color: #4F5B4A;
+            transition: all 0.25s;
+        }
+
+        .purchase-link:hover {
+            background: #B48C48;
+            border-color: #B48C48;
+            color: white;
+        }
+
+        /* 木质展示区 */
+        .wood-showcase {
+            background: #FEFAF2;
+            padding: 80px 0;
+        }
+
+        .wood-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .wood-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid #EEE5DA;
+        }
+
+        .wood-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 35px -14px rgba(0, 0, 0, 0.1);
+        }
+
+        .wood-img {
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .wood-card:hover .wood-img {
+            transform: scale(1.03);
+        }
+
+        .wood-info {
+            padding: 26px 26px 30px;
+        }
+
+        .wood-info h3 {
+            font-size: 22px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2C3A2B;
+        }
+
+        .wood-info p {
+            color: #737B6A;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 历程区块 */
+        .timeline-area {
+            padding: 80px 0;
+            background: #FFFFFF;
+        }
+
+        .timeline-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .timeline-node {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+            padding: 36px 20px;
+            background: #FDFAF5;
+            border-radius: 40px;
+            transition: all 0.3s;
+            border: 1px solid #F1E8DD;
+        }
+
+        .timeline-node:hover {
+            transform: translateY(-6px);
+            background: #FFFFFF;
+            box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.06);
+        }
+
+        .year {
+            font-size: 36px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            color: #B48C48;
+            margin-bottom: 14px;
+        }
+
+        .timeline-node p {
+            font-size: 14px;
+            color: #6B7264;
+            line-height: 1.55;
+        }
+
+        /* 设计师语录 */
+        .designer-quote {
+            background: linear-gradient(135deg, #F9F4EA 0%, #FEFAF2 100%);
+            padding: 80px 0;
+        }
+
+        .quote-carousel {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 16px 0 24px;
+            scrollbar-width: thin;
+        }
+        .quote-carousel::-webkit-scrollbar {
+            height: 4px;
+        }
+        .quote-card {
+            min-width: 360px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 36px;
+            padding: 36px 32px;
+            scroll-snap-align: start;
+            box-shadow: 0 18px 32px -12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #F0E4D4;
+        }
+        .quote-text {
+            font-size: 19px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #2C3A2B;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        .quote-author {
+            font-weight: 600;
+            color: #B48C48;
+            font-size: 14px;
+        }
+        .quote-title {
+            font-size: 12px;
+            color: #9B927E;
+            margin-top: 4px;
+        }
+
+        /* 品牌资讯 */
+        .brand-insights {
+            padding: 80px 0;
+            background: #FFFFFF;
+        }
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .insight-card {
+            background: #FDFAF5;
+            border-radius: 28px;
+            padding: 30px;
+            transition: all 0.4s;
+            border: 1px solid #F0E7DC;
+        }
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 28px -12px rgba(0, 0, 0, 0.06);
+        }
+        .insight-date {
+            font-size: 11px;
+            color: #B48C48;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            display: block;
+            font-weight: 500;
+        }
+        .insight-card h4 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2C3A2B;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .insight-card p {
+            color: #737A68;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 优势统计 */
+        .advantage-stats {
+            background: #2C3A2B;
+            color: #FEF6EA;
+            padding: 70px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            color: #E8CDA4;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* 特色区块 */
+        .features {
+            background: #FEFCF8;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            background: #FFFFFF;
+            padding: 42px 28px;
+            border-radius: 36px;
+            transition: all 0.4s;
+            border: 1px solid #F0E7DC;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -16px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            color: #B48C48;
+            margin-bottom: 24px;
+        }
+        .feature-item h3 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #2C3A2B;
+        }
+        .feature-item p {
+            color: #737A68;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #131C16;
+            color: #CFD4CD;
+            padding: 60px 0 28px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-column h3 {
+            font-size: 19px;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            color: #F2E6D5;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: #B48C48;
+            margin-top: 10px;
+        }
+
+        .footer-column p, .footer-column a {
+            color: #B7BCB2;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: #E2C28B;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #2A352C;
+            border-radius: 50%;
+            color: #E0CFB8;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #B48C48;
+            color: #131C16;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #2C382C;
+            padding-top: 28px;
+            font-size: 12px;
+            color: #8F988B;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========= 响应式优化 - 消除空白 ========= */
+        @media (max-width: 992px) {
+            .hero-inner { padding: 50px 0 60px; gap: 40px; }
+            .hero-content h1 { font-size: 48px; }
+            .hero-content p { font-size: 16px; }
+            .hero-media .hero-img { max-width: 100%; }
+            .section-header h2 { font-size: 36px; }
+            .section-header { margin-bottom: 48px; }
+            .wood-grid, .insights-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+            .furniture-grid { gap: 32px; margin-bottom: 64px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 12px; text-align: center; }
+            nav ul { justify-content: center; gap: 28px; margin-top: 4px; }
+            .hero-inner { flex-direction: column; text-align: center; padding: 45px 0 55px; }
+            .hero-content { padding-right: 0; text-align: center; }
+            .hero-content p { max-width: 100%; margin-left: auto; margin-right: auto; }
+            .hero-media { justify-content: center; margin-top: 20px; }
+            .hero-media .hero-img { max-width: 90%; }
+            .section-header h2 { font-size: 32px; }
+            .section-header .sub { font-size: 15px; }
+            .category-filter { gap: 12px; margin-bottom: 40px; }
+            .filter-btn { padding: 6px 20px; font-size: 13px; }
+            .wood-grid, .insights-grid { grid-template-columns: 1fr; gap: 28px; }
+            .timeline-grid { flex-direction: column; align-items: center; }
+            .timeline-node { width: 100%; max-width: 320px; }
+            .quote-card { min-width: 280px; padding: 28px 24px; }
+            .quote-text { font-size: 17px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+            .features-grid { gap: 28px; }
+            .feature-item { padding: 32px 24px; }
+            .footer-content { gap: 36px; text-align: center; }
+            .footer-column h3:after { margin-left: auto; margin-right: auto; }
+            .social-icons { justify-content: center; }
+            .container { padding: 0 24px; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 38px; }
+            .hero-inner { padding: 35px 0 45px; gap: 28px; }
+            .furniture-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 50px; }
+            .furniture-img-container { height: 260px; }
+            .furniture-info { padding: 22px; }
+            .section-header { margin-bottom: 36px; }
+            .section-header h2 { font-size: 28px; }
+            .wood-showcase, .timeline-area, .designer-quote, .brand-insights, .features { padding: 55px 0; }
+            .advantage-stats { padding: 50px 0; }
+            .stats-grid { grid-template-columns: 1fr; gap: 32px; }
+            .stat-number { font-size: 42px; }
+            .container { padding: 0 20px; }
+            .footer-content { gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <i class="fas fa-tree logo-icon"></i>
+            <div class="logo-text">青矜<span>创途</span></div>
+            <span class="tagline">Wooden Legacy</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#furniture">典藏</a></li>
+                <li><a href="#wood-craft">木艺志</a></li>
+                <li><a href="#timeline">历程</a></li>
+                <li><a href="#insights">资讯</a></li>
+                <li><a href="#about">鉴藏</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="container hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge">SINCE 2018 · 木作策展人</div>
+            <h1>木韵千年<br>家具的<span>静默史诗</span></h1>
+            <p>每一寸纹理皆为自然手稿，青矜创途汇集全球孤品木作家具，赋予空间传世温度。</p>
+            <a href="#furniture" class="cta-btn">探索木艺臻藏 <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-media">
+            <img class="hero-img" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="高端木作家具意境">
+        </div>
+    </div>
+</section>
+
+<main class="container" id="furniture">
+    <div class="section-header scroll-reveal">
+        <h2>馆藏 · 设计孤品</h2>
+        <div class="sub">全球设计师联名系列 · 每件附独立收藏编号与木材履历</div>
+    </div>
+    <div class="categories scroll-reveal">
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">全部作品</button>
+            <button class="filter-btn" data-filter="living-room">客厅典藏</button>
+            <button class="filter-btn" data-filter="bedroom">卧室谧境</button>
+            <button class="filter-btn" data-filter="dining-room">餐厅飨宴</button>
+            <button class="filter-btn" data-filter="study">书房文心</button>
+        </div>
+        <div class="furniture-grid" id="furnitureGrid">
+            <div class="furniture-item" data-category="living-room"><div class="furniture-img-container"><img src="四出头官帽椅.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>四出头官帽椅</h3><p>线条简练，坐感舒适，端庄大气，经久耐看</p><span class="price-tag">¥ 2,680</span><a href="#" class="purchase-link">臻藏通道 <i class="fas fa-external-link-alt"></i></a></div></div>
+            <div class="furniture-item" data-category="bedroom"><div class="furniture-img-container"><img src="明式红木架子床.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>明式红木架子床</h3><p>形制典雅，稳固安神，用料厚实，古韵绵长</p><span class="price-tag">¥ 8,999</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+            <div class="furniture-item" data-category="dining-room"><div class="furniture-img-container"><img src="明式红木餐桌.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>明式红木餐桌</h3><p>简约大气，稳固耐用，纹理温润，中式雅致</p><span class="price-tag">¥ 3,699</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+            <div class="furniture-item" data-category="study"><div class="furniture-img-container"><img src="小桌子.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>八仙桌</h3><p>方正大气，稳固耐用，团圆实用，古韵十足</p><span class="price-tag">¥ 3,699</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+            <div class="furniture-item" data-category="living-room"><div class="furniture-img-container"><img src="花梨木圆鼓凳.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>花梨木圆鼓凳</h3><p>纹理温润，结实舒适，中式雅致，经久耐用</p><span class="price-tag">¥ 699</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+            <div class="furniture-item" data-category="dining-room"><div class="furniture-img-container"><img src="黄花梨木柜格.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>黄花梨木柜格</h3><p>纹理华美，木性稳定，典雅耐用收藏价值高</p><span class="price-tag">¥ 7,800</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+            <div class="furniture-item" data-category="bedroom"><div class="furniture-img-container"><img src="明式实木衣架.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>明式实木衣架</h3><p>简约雅致，线条流畅，实用耐看，经久耐用</p><span class="price-tag">¥ 499</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+            <div class="furniture-item" data-category="study"><div class="furniture-img-container"><img src="中式实木书架.jpg" class="furniture-img"><a href="#" class="view-product">鉴赏孤品</a></div><div class="furniture-info"><h3>中式实木书架</h3><p>沉稳大气，收纳实用，韵味足，结实耐用</p><span class="price-tag">¥ 1,299</span><a href="#" class="purchase-link">臻藏通道</a></div></div>
+        </div>
+    </div>
+</main>
+
+<section class="wood-showcase" id="wood-craft">
+    <div class="container">
+        <div class="section-header scroll-reveal"><h2>传世木艺 · 珍稀原材</h2><div class="sub">从森林到居所，严选三大名木</div></div>
+        <div class="wood-grid">
+            <div class="wood-card scroll-reveal"><img class="wood-img" src="花梨木.jpg"><div class="wood-info"><h3>花梨木</h3><p>纹理佳，耐腐稳形，暗香怡人</p></div></div>
+            <div class="wood-card scroll-reveal"><img class="wood-img" src="红木.jpg"><div class="wood-info"><h3>红木</h3><p>质地坚硬，纹理美观，经久耐用</p></div></div>
+            <div class="wood-card scroll-reveal"><img class="wood-img" src="花梨木.jpg"><div class="wood-info"><h3>黄花梨木</h3><p>纹理温润细腻，木性稳定，收藏价值极高</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="timeline-area" id="timeline">
+    <div class="container">
+        <div class="section-header scroll-reveal"><h2>青矜 · 匠造年轮</h2><div class="sub">七年步履不停 · 连接全球47位独立设计师</div></div>
+        <div class="timeline-grid">
+            <div class="timeline-node scroll-reveal"><div class="year">2018</div><p>创始于北京751艺术区，首提「家具策展」理念</p></div>
+            <div class="timeline-node scroll-reveal"><div class="year">2020</div><p>建立「木艺研习所」，引入可持续森林认证</p></div>
+            <div class="timeline-node scroll-reveal"><div class="year">2023</div><p>举办「东方榫卯×现代主义」特展</p></div>
+            <div class="timeline-node scroll-reveal"><div class="year">2025</div><p>全球首个“木材履历”溯源系统上线</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="designer-quote">
+    <div class="container">
+        <div class="section-header scroll-reveal"><h2>匠人心声 · 设计哲思</h2><div class="sub">聆听创造者的温度</div></div>
+        <div class="quote-carousel">
+            <div class="quote-card"><div class="quote-text">“木材会呼吸，我们要做的是唤醒它的第二生命，让使用者感受到森林的气息。”</div><div class="quote-author">—— 中岛乔治</div><div class="quote-title">木艺大师</div></div>
+            <div class="quote-card"><div class="quote-text">“简约不是少，而是精准。每一根线条都承载着功能与美的平衡。”</div><div class="quote-author">—— 汉斯·瓦格纳</div><div class="quote-title">丹麦设计巨匠</div></div>
+            <div class="quote-card"><div class="quote-text">“好的家具应该能传承三代，它见证岁月，也沉淀情感。”</div><div class="quote-author">—— 朱小杰</div><div class="quote-title">中国当代设计师</div></div>
+            <div class="quote-card"><div class="quote-text">“榫卯之间，是东方智慧的缩影，不用一钉一铆，却可屹立百年。”</div><div class="quote-author">—— 陈仁毅</div><div class="quote-title">古典家具学者</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="brand-insights" id="insights">
+    <div class="container">
+        <div class="section-header scroll-reveal"><h2>青矜资讯 · 木作前沿</h2><div class="sub">深度解读设计与工艺的最新动态</div></div>
+        <div class="insights-grid">
+            <div class="insight-card scroll-reveal"><span class="insight-date">2025.03.15</span><h4>黑胡桃木收藏价值年增15%</h4><p>全球珍稀硬木市场持续升温，北美黑胡桃成为藏家新宠。</p></div>
+            <div class="insight-card scroll-reveal"><span class="insight-date">2025.02.28</span><h4>榫卯工艺的当代复兴</h4><p>传统榫卯结构与现代设计语言融合，联合故宫修复师推出特别系列。</p></div>
+            <div class="insight-card scroll-reveal"><span class="insight-date">2025.02.10</span><h4>米兰设计周参展预告</h4><p>青矜创途将携8件新作亮相2025米兰设计周。</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="advantage-stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item scroll-reveal"><div class="stat-number">1200+</div><p>全球甄选设计作品</p></div>
+            <div class="stat-item scroll-reveal"><div class="stat-number">47位</div><p>独立设计师联盟</p></div>
+            <div class="stat-item scroll-reveal"><div class="stat-number">13家</div><p>百年木工坊合作</p></div>
+            <div class="stat-item scroll-reveal"><div class="stat-number">100%</div><p>FSC认证木材</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="section-header scroll-reveal"><h2>典藏级服务 · 传世价值</h2><div class="sub">不止于家具，更是可传承的生活艺术品</div></div>
+        <div class="features-grid">
+            <div class="feature-item scroll-reveal"><div class="feature-icon"><i class="fas fa-tree"></i></div><h3>原木档案</h3><p>每件实木家具附带木材产地、切割方式完整履历。</p></div>
+            <div class="feature-item scroll-reveal"><div class="feature-icon"><i class="fas fa-feather-alt"></i></div><h3>匠人署名</h3><p>作品均有创作者签名及限量编号，赋予独特收藏价值。</p></div>
+            <div class="feature-item scroll-reveal"><div class="feature-icon"><i class="fas fa-gem"></i></div><h3>收藏级养护</h3><p>终身养护指导，定期木蜡油保养服务。</p></div>
+            <div class="feature-item scroll-reveal"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>升值潜力</h3><p>联名款家具年化增值稳定，部分孤品进入拍卖市场。</p></div>
+        </div>
+    </div>
+</section>
+
+<footer id="about">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column"><h3>青矜创途</h3><p>木作家具策展平台，连接设计与时间。</p><div class="social-icons"><a href="#"><i class="fab fa-weixin"></i></a><a href="#"><i class="fab fa-weibo"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+            <div class="footer-column"><h3>木艺系列</h3><a href="#">黑胡桃典藏</a><a href="#">柚木传承</a><a href="#">白橡极简</a></div>
+            <div class="footer-column"><h3>服务支持</h3><a href="#">木材履历查询</a><a href="#">养护指南</a><a href="#">预约展厅</a></div>
+            <div class="footer-column"><h3>鉴藏顾问</h3><p>北京市朝阳区 751D·PARK A8</p><p>curator@qingjin.com</p><p>400 668 1919</p></div>
+        </div>
+        <div class="copyright"><p>© 2025 青矜创途 | 专注收藏级木作家具</p></div>
+    </div>
+</footer>
+
+<script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    revealElements.forEach(el => observer.observe(el));
+
+    const btns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.furniture-item');
+    function filter(cat) {
+        items.forEach(it => {
+            if (cat === 'all' || it.dataset.category === cat) {
+                it.style.display = 'block';
+                it.style.animation = 'fadeUp 0.5s ease forwards';
+            } else {
+                it.style.display = 'none';
+            }
+        });
+    }
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            btns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            filter(this.dataset.filter);
+        });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if (hash === "#") return;
+            const target = document.querySelector(hash);
+            if (target) {
+                e.preventDefault();
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
